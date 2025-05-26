@@ -7,6 +7,17 @@ import { NavOverlay } from "./NavOverlay";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
 
+type SubNav = {
+  name: string;
+  href: string;
+};
+
+type NavItem = {
+  name: string;
+  href: string;
+  description: string;
+  subnavs: SubNav[];
+};
 const navs = [
   {
     name: "Admission",
@@ -61,7 +72,7 @@ export const Navbar = () => {
   const pathname = usePathname();
   const [Open, setOpen] = useState(false);
   // const isActive = pathname === href;
-  const [activeOverlay, setActiveOverlay] = useState(null);
+  const [activeOverlay, setActiveOverlay] = useState<NavItem | null>(null);
   return (
     <header className="card">
       <div className="w-full px-6 lg:px-10  lg:mx-auto">
