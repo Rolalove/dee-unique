@@ -1,7 +1,5 @@
 import React from "react";
 import InfoCard from "../sharedcomponent/InfoCard";
-import { title } from "process";
-import { text } from "stream/consumers";
 const cardData = [
   {
     title: "Nursery & Primary School (Lagos Campus)",

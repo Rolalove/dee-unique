@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <Navbar href={""} />
+        <Navbar />
         <main>{children}</main>
         <JoinDeeUniqueFamily />
         <Footer />

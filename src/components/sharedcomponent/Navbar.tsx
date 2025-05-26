@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { NavOverlay } from "./NavOverlay";
 import { LuMenu } from "react-icons/lu";
 import { AiOutlineClose } from "react-icons/ai";
@@ -57,10 +57,10 @@ const navs = [
     subnavs: [{ name: "Dee Unique News", href: "/thelatest/news" }],
   },
 ];
-export const Navbar = ({ href }: { href: string }) => {
+export const Navbar = () => {
   const pathname = usePathname();
   const [Open, setOpen] = useState(false);
-  const isActive = pathname === href;
+  // const isActive = pathname === href;
   const [activeOverlay, setActiveOverlay] = useState(null);
   return (
     <header className="card">

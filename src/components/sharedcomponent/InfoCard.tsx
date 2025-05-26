@@ -1,10 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 interface InfoCardProps {
   title: string;
   images: string[];
   text: string;
-  listItems?: string[]; // optional list
+  listItems: string[]; // optional list
 }
 
 const InfoCard = ({ title, images, text, listItems }: InfoCardProps) => {
