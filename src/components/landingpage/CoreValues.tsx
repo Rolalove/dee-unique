@@ -1,39 +1,50 @@
 import { HiLightBulb } from "react-icons/hi";
 import { FaGraduationCap } from "react-icons/fa";
+import Image from "next/image";
 
 const CoreValues = () => {
   return (
-    <section className="lg:mt-20  mb-20">
-      <h2 className="text-center font-semibold text-4xl text-[#1E1E1E]">
+    <section className="mt-20 lg:mt-30 ">
+      <h2 className="text-center font-semibold text-4xl text-[#1E1E1E] mb-8">
         Our Core Values
       </h2>
-      <div className="flex flex-col lg:flex-row lg:justify-evenly lg:items-center">
-        <div className="h-72 w-96 bg-[#FFFE0D80] rounded-xl justify-center flex items-center">
-          <div className="px-4 py-4 space-y-4 flex flex-col justify-center items-center">
-            <FaGraduationCap size={80} color="#1E1E1E" />
-            <p className="font-semibold text-2xl">Academic Excellence</p>
-            <p className="max-w-[300px] text-base text-center font-medium">
+      <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-10">
+        {/* Card 1 */}
+        <div className="h-64 w-full max-w-xs bg-[#FFFE0D80] rounded-xl flex flex-col justify-between items-center p-6">
+          <FaGraduationCap size={80} color="#1E1E1E" />
+          <div className="text-center">
+            <p className="font-semibold text-2xl mt-4">Academic Excellence</p>
+            <p className="text-lg font-medium mt-2">
               Fostering a culture of high achievement and critical thinking.
             </p>
           </div>
         </div>
-        <div className=" w-96 h-96 bg-[#264B22] rounded-xl justify-center flex items-center">
-          <div className=" px-4 py-4 space-y-4 flex flex-col justify-center items-center">
-            <p className="text-[#ffffff] font-semibold text-2xl">
-              Character Development
-            </p>
-            <p className="text-[#ffffff] max-w-[300px] text-base text-center font-medium">
+
+        {/* Card 2 (taller) */}
+        <div className="h-80 w-full max-w-xs bg-[#264B22] rounded-xl flex flex-col justify-between items-center p-6">
+          <Image
+            src="/mdi_teaching.svg"
+            width={80}
+            height={80}
+            alt="A teacher"
+          />
+          <div className="text-center text-white">
+            <p className="font-semibold text-2xl mt-4">Character Development</p>
+            <p className="text-lg font-medium mt-2">
               Integrity, discipline, and respect are at the heart of our
-              teaching,.
+              teaching.
             </p>
           </div>
         </div>
-        <div className="h-72  w-96 bg-[#FFFE0D80] rounded-xl justify-center flex items-center">
-          <div className="px-4 py-4 space-y- flex flex-col justify-center items-center">
-            <HiLightBulb size={80} color="#1E1E1E" />
 
-            <p className=" font-semibold text-2xl">Innovation & Creativity</p>
-            <p className="text-base text-center font-medium max-w-[300px] ">
+        {/* Card 3 */}
+        <div className="h-64 w-full max-w-xs bg-[#FFFE0D80] rounded-xl flex flex-col justify-between items-center p-6">
+          <HiLightBulb size={80} color="#1E1E1E" />
+          <div className="text-center">
+            <p className="font-semibold text-2xl mt-4">
+              Innovation & Creativity
+            </p>
+            <p className="text-lg font-medium mt-2">
               We encourage problem-solving, creativity, and digital literacy.
             </p>
           </div>

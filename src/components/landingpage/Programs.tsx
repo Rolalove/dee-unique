@@ -25,7 +25,7 @@ const cardData = [
 
 const Programs = () => {
   return (
-    <div>
+    <div className="mt-20 lg:mt-30">
       <h2 className="text-center text-4xl font-semibold">
         Our Academic Programs
       </h2>

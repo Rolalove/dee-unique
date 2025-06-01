@@ -4,7 +4,7 @@ import React from "react";
 
 export const Whoarewe = () => {
   return (
-    <section className="grid grid-cols-1 lg:[grid-template-columns:3fr_2fr] lg:mt-30 place-content-center place-items-center gap-8 lg:gap-0 px-4 lg:px-0">
+    <section className="grid grid-cols-1 lg:[grid-template-columns:3fr_2fr] lg:mt-30 place-content-center place-items-center gap-8 ">
       <div className="order-1 lg:order-1">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-x-6">
           {/* First image (landscape on mobile, full height on desktop) */}
@@ -14,6 +14,7 @@ export const Whoarewe = () => {
               width={300}
               height={505}
               quality={100}
+              priority
               alt="Student together wearing sport wear"
               className="w-full h-[200px] lg:w-[300px] lg:h-[505px] object-cover rounded-lg"
             />
@@ -24,6 +25,7 @@ export const Whoarewe = () => {
               width={396}
               height={264}
               quality={100}
+              priority
               alt="Student together wearing sport wear"
               className="w-full h-[120px] lg:w-full lg:h-[264px] object-cover rounded-lg"
             />
@@ -32,6 +34,7 @@ export const Whoarewe = () => {
               width={396}
               height={223}
               quality={100}
+              priority
               alt="Student together wearing sport wear"
               className="w-full h-[120px] lg:w-full lg:h-[223px] object-cover rounded-lg"
             />

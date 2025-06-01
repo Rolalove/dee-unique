@@ -9,11 +9,11 @@ interface InfoCardProps {
 const InfoCard = ({ title, images, text, listItems }: InfoCardProps) => {
   return (
     <section
-      className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] lg:mt-10 place-content-center place-items-center gap-8 lg:gap-0 px-4 lg:px-10
+      className="grid  lg:grid-cols-[2fr_3fr] lg:mt-12 place-content-center place-items-center gap-x-16
     "
     >
       {/* Text: now first column with 2fr */}
-      <div className="space-y-[40px] max-w-[500px] order-2 lg:order-1 text-center lg:text-left">
+      <div className="space-y-[40px] mt-8 lg:mt-0 max-w-[500px] order-1 lg:order-1 text-center lg:text-left">
         <h3 className="font-semibold text-left text-[28px] lg:text-[35px] text-[#1E1E1E]">
           {title}
         </h3>
@@ -36,7 +36,7 @@ const InfoCard = ({ title, images, text, listItems }: InfoCardProps) => {
       </div>
 
       {/* Images: now second column with 3fr */}
-      <div className="order-1 mt-6 lg:mt-0 lg:order-2">
+      <div className="order-2 mt-8 lg:mt-0 lg:order-2">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-x-6">
           <div className="flex-shrink-0">
             <Image
