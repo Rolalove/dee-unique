@@ -6,7 +6,7 @@ const JoinDeeUniqueFamily = () => {
     <section className="relative w-full h-auto">
       {/* Background image with overlay */}
       <div
-        className="absolute inset-0 bg-[url(/StudentsTogether.png)] bg-cover bg-center  bg-[#264B224D] opacity-30"
+        className="absolute inset-0 bg-[url(/StudentsTogether.webp)] bg-cover bg-center  bg-[#264B224D] opacity-30"
         aria-hidden="true"
       ></div>
 

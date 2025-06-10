@@ -8,7 +8,7 @@ const AcademicCalendar = () => {
       body: "Plan ahead for each academic session.",
     },
     {
-      image: "/StudentsandTeacher.png",
+      image: "/StudentsandTeacher.webp",
       title: "Holiday Periods & Breaks",
       body: "Information on school closures and vacation times.",
     },

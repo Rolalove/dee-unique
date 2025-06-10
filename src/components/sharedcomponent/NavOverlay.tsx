@@ -1,5 +1,6 @@
 import { TfiClose } from "react-icons/tfi";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 interface NavOverlayProps {
   onClose: () => void;
   title: string;
@@ -18,7 +19,7 @@ export const NavOverlay = ({
     <div className="fixed bg-white inset-0 z-50 flex h-screen w-full">
       <div
         className="hidden lg:block w-[60%] relative
-         bg-[url(/StudentsTogether.png)] bg-cover bg-center opacity-30"
+         bg-[url(/StudentsTogether.webp)] bg-cover bg-center opacity-30"
         aria-hidden="true"
       >
         <div className="absolute inset-0  bg-[#264B224D] " />
@@ -37,17 +38,26 @@ export const NavOverlay = ({
 
         <div className="bg-white flex flex-col gap-8 mt-10">
           {subnavs.map((subnavs, index) => (
-            <ul key={index} className="">
-              <button
-                onClick={() => {
-                  router.push(subnavs.href);
-                  onClose();
-                }}
-                className="text-xl text-left font-medium text-[#1E1E1E] cursor-pointer"
+            // <ul key={index} className="">
+            //   <button
+            //     onClick={() => {
+            //       router.push(subnavs.href);
+            //       onClose();
+            //     }}
+            //     className="text-xl text-left font-medium text-[#1E1E1E] cursor-pointer"
+            //   >
+            //     {subnavs.name}
+            //   </button>
+            // </ul>
+            <li key={index}>
+              <Link
+                href={subnavs.href}
+                onClick={onClose}
+                className="text-xl text-left font-medium text-[#1E1E1E] cursor-pointer block"
               >
                 {subnavs.name}
-              </button>
-            </ul>
+              </Link>
+            </li>
           ))}
         </div>
       </div>
