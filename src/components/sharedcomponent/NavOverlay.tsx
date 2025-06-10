@@ -1,5 +1,4 @@
 import { TfiClose } from "react-icons/tfi";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 interface NavOverlayProps {
   onClose: () => void;
@@ -14,7 +13,6 @@ export const NavOverlay = ({
   description,
   subnavs,
 }: NavOverlayProps) => {
-  const router = useRouter();
   return (
     <div className="fixed bg-white inset-0 z-50 flex h-screen w-full">
       <div
