@@ -10,18 +10,18 @@ export const Whoarewe = () => {
           {/* First image (landscape on mobile, full height on desktop) */}
           <div className="flex-shrink-0">
             <Image
-              src="/Whoweare1.png"
+              src="/Whoweare1.webp"
               width={300}
               height={505}
               quality={100}
               priority
-              alt="Student together wearing sport wear"
+              alt="   together wearing sport wear"
               className="w-full h-[200px] lg:w-[300px] lg:h-[505px] object-cover rounded-lg"
             />
           </div>
           <div className="grid grid-cols-2 lg:grid-rows-2 lg:grid-cols-1 place-content-between gap-4">
             <Image
-              src="/Whoweare2.png"
+              src="/Whoweare2.webp"
               width={396}
               height={264}
               quality={100}
@@ -30,7 +30,7 @@ export const Whoarewe = () => {
               className="w-full h-[120px] lg:w-full lg:h-[264px] object-cover rounded-lg"
             />
             <Image
-              src="/Whoweare3.png"
+              src="/Whoweare3.webp"
               width={396}
               height={223}
               quality={100}

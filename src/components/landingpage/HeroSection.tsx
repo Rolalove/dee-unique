@@ -36,7 +36,7 @@ const HeroSection = () => {
           </p>
           <div className="flex justify-between mt-6 lg:mt-0 lg:justify-start   lg:gap-6">
             <button className="text-[#264B22] w-fit border border-[#264B22] px-4 py-2 rounded-xl text-xl font-medium">
-              Apply Now
+              Learn More
             </button>
             <button className="bg-[#264B22] w-fit text-white px-4 py-2 rounded-xl text-xl font-medium">
               Apply Now

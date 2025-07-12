@@ -14,10 +14,10 @@ const InfoCard = ({ title, images, text, listItems }: InfoCardProps) => {
     >
       {/* Text: now first column with 2fr */}
       <div className="space-y-[40px] mt-8 lg:mt-0 max-w-[500px] order-1 lg:order-1 text-center lg:text-left">
-        <h3 className="font-semibold text-left text-[28px] lg:text-[35px] text-[#1E1E1E]">
+        <h3 className="font-semibold text-left text-2xl lg:text-3xl leading-relaxed text-[#1E1E1E]">
           {title}
         </h3>
-        <p className="text-lg text-left lg:text-xl font-medium leading-relaxed">
+        <p className="text-lg text-left lg:text-xl font-medium leading-relaxed text-[#1E1E1E]">
           {text}
         </p>
         {listItems?.length > 0 && (
@@ -25,7 +25,7 @@ const InfoCard = ({ title, images, text, listItems }: InfoCardProps) => {
             {listItems.map((item, index) => (
               <li
                 key={index}
-                className="text-base lg:text-lg flex items-start gap-6 "
+                className="text-base lg:text-lg text-[#1E1E1E] font-medium flex items-start gap-6 "
               >
                 <Image src="/Tick.svg" width={30} height={30} alt="Ticks" />
                 <span> {item}</span>

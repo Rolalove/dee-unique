@@ -4,6 +4,7 @@ import HeroSection from "@/components/landingpage/HeroSection";
 import Programs from "@/components/landingpage/Programs";
 import WhyDeeUnique from "@/components/landingpage/WhyDeeUnique";
 import AcademicCalendar from "@/components/landingpage/AcademicCalendar";
+import { SuccessStory } from "@/components/landingpage/SuccessStory";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         </div>
         <WhyDeeUnique />
         <AcademicCalendar />
+        <SuccessStory />
       </div>
     </>
   );

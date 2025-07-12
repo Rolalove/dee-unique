@@ -3,7 +3,7 @@ import Image from "next/image";
 const AcademicCalendar = () => {
   const cardDetails = [
     {
-      image: "/FocusStudents.png",
+      image: "/FocusStudents.webp",
       title: "Term Start & End Dates",
       body: "Plan ahead for each academic session.",
     },
@@ -36,10 +36,10 @@ const AcademicCalendar = () => {
                 alt={title}
                 fill
                 quality={100}
-                className="object-cover w-full"
+                className="object-cover"
               />
             </div>
-            <div className="p-4  flex flex-col justify-between text-[#1E1E1E]">
+            <div className="p-4 flex flex-col justify-between text-[#1E1E1E]">
               <h3 className="text-xl font-semibold mb-2">{title}</h3>
               <p className="font-medium text-lg">{body}</p>
             </div>

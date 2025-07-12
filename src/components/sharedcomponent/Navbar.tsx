@@ -18,6 +18,7 @@ type NavItem = {
   description: string;
   subnavs: SubNav[];
 };
+
 const navs = [
   {
     name: "Admission",
@@ -43,7 +44,7 @@ const navs = [
     href: "/aboutus",
     description: "About Dee Unique",
     subnavs: [
-      { name: "Welcome to Dee Unique", href: "/aboutus/Welcome" },
+      { name: "Welcome to Dee Unique", href: "/" }, // Changed to root
       { name: "Academic Calendar", href: "/aboutus/Academiccalendar" },
       { name: "Virtual Tour", href: "/aboutus/Virtualtour" },
       {
@@ -68,14 +69,66 @@ const navs = [
     subnavs: [{ name: "Dee Unique News", href: "/thelatest/news" }],
   },
 ];
+
 export const Navbar = () => {
   const pathname = usePathname();
   const [Open, setOpen] = useState(false);
-  // const isActive = pathname === href;
   const [activeOverlay, setActiveOverlay] = useState<NavItem | null>(null);
+  const [showMainMenu, setShowMainMenu] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Function to check if a nav item is active
+  const isNavActive = (nav: NavItem) => {
+    // Special handling for About Us when on root page
+    if (nav.name === "About Us" && pathname === "/") return true;
+
+    // Check if current pathname matches the nav href exactly
+    if (pathname === nav.href) return true;
+
+    // Check if current pathname starts with the nav href (for subnavs)
+    if (pathname.startsWith(nav.href + "/")) return true;
+
+    // Check if current pathname matches any of the subnav hrefs
+    return nav.subnavs.some((subnav) => pathname === subnav.href);
+  };
+
+  // Handle mobile menu toggle
+  const handleMobileMenuToggle = () => {
+    setOpen(!Open);
+    setShowMainMenu(!Open);
+    setActiveOverlay(null);
+  };
+
+  // Handle nav item click
+  const handleNavClick = (nav: NavItem) => {
+    if (window.innerWidth < 1024) {
+      // Mobile
+      setActiveOverlay(nav);
+      setShowMainMenu(false);
+      setIsMobile(true);
+    } else {
+      // Desktop
+      setActiveOverlay(nav);
+      setIsMobile(false);
+    }
+  };
+
+  // Handle back to main menu (mobile only)
+  const handleBackToMainMenu = () => {
+    setActiveOverlay(null);
+    setShowMainMenu(true);
+  };
+
+  // Handle close overlay
+  const handleCloseOverlay = () => {
+    setActiveOverlay(null);
+    setShowMainMenu(false);
+    setOpen(false);
+  };
+
   return (
-    <header className="card">
-      <div className="w-full px-6 lg:px-10  lg:mx-auto">
+    <header className="card relative">
+      <div className="w-full px-6 lg:px-10 lg:mx-auto">
         <nav className="flex justify-between items-center py-3 text-xl font-medium">
           <Link href="/">
             <Image
@@ -88,14 +141,14 @@ export const Navbar = () => {
 
           <ul className="hidden lg:flex lg:gap-x-10">
             {navs.map((nav, index) => {
-              const isActive = pathname === nav.href;
+              const isActive = isNavActive(nav);
               return (
                 <li key={index}>
                   <button
-                    onClick={() => setActiveOverlay(nav)}
+                    onClick={() => handleNavClick(nav)}
                     className={
                       isActive
-                        ? "underline decoration-[#FFFE0D]"
+                        ? "underline decoration-[#FFFE0D] decoration-3 underline-offset-8"
                         : "cursor-pointer"
                     }
                   >
@@ -121,30 +174,35 @@ export const Navbar = () => {
               Contact Us
             </Link>
           </div>
-          <button className="lg:hidden" onClick={() => setOpen(!Open)}>
+          <button className="lg:hidden" onClick={handleMobileMenuToggle}>
             {Open ? <AiOutlineClose size={40} /> : <LuMenu size={40} />}
           </button>
 
-          {Open && (
-            <div className="lg:hidden absolute top-20 left-0 w-full h-screen  bg-white shadow-lg z-50">
-              <ul className="flex flex-col items-center gap-y-12 text-center p-6">
-                {navs.map((nav, index) => (
-                  <li key={index}>
-                    <button
-                      onClick={() => {
-                        setActiveOverlay(nav);
-                        setOpen(false); // optionally close menu after selection
-                      }}
-                      className="w-full text-left text-lg font-medium"
-                    >
-                      {nav.name}
-                    </button>
-                  </li>
-                ))}
+          {/* Mobile Main Menu */}
+          {Open && showMainMenu && (
+            <div className="lg:hidden fixed inset-0 top-20 w-full h-screen bg-white shadow-lg z-50">
+              <ul className="flex flex-col items-center gap-y-12 text-center p-6 pt-12">
+                {navs.map((nav, index) => {
+                  const isActive = isNavActive(nav);
+                  return (
+                    <li key={index}>
+                      <button
+                        onClick={() => handleNavClick(nav)}
+                        className={`w-full text-left text-lg font-medium ${
+                          isActive
+                            ? "underline decoration-[#FFFE0D] decoration-3 underline-offset-8"
+                            : ""
+                        }`}
+                      >
+                        {nav.name}
+                      </button>
+                    </li>
+                  );
+                })}
                 <li>
                   <a
                     href="#"
-                    className="text-[#264B22]  border border-[#264B22] px-3 py-2 rounded-xl block text-center"
+                    className="text-[#264B22] border border-[#264B22] px-3 py-2 rounded-xl block text-center"
                   >
                     School Portal
                   </a>
@@ -168,7 +226,9 @@ export const Navbar = () => {
           title={activeOverlay.name}
           description={activeOverlay.description}
           subnavs={activeOverlay.subnavs}
-          onClose={() => setActiveOverlay(null)}
+          onClose={handleCloseOverlay}
+          onBack={isMobile ? handleBackToMainMenu : undefined}
+          isMobile={isMobile}
           image={""}
         />
       )}

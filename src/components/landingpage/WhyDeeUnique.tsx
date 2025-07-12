@@ -9,10 +9,10 @@ const WhyDeeUnique = () => {
   ];
 
   const images = [
-    { src: "/StudentInLab.png", alt: "Student in science lab" },
-    { src: "/StudentInLab.png", alt: "Students in smart classroom" },
-    { src: "/StudentInLab.png", alt: "Student using computer in ICT lab" },
-    { src: "/StudentInLab.png", alt: "Student participating in sports" },
+    { src: "/StudentIncomputerRoom2.webp", alt: "Student in science lab" },
+    { src: "/studentinchemistrylab.webp", alt: "Students doing experiment" },
+    { src: "/studentsplayingchess.webp", alt: "Student playing chess" },
+    { src: "/studentsplayingtennis.webp", alt: "Student playing tennis" },
   ];
 
   return (
@@ -21,28 +21,95 @@ const WhyDeeUnique = () => {
         Why Choose Dee Unique International Schools?
       </h2>
 
-      <div className="grid lg:grid-cols-[3fr_2fr] items-stretch gap-x-16 mt-12">
+      <div className="grid lg:grid-cols-[55%_40%] items-stretch gap-x-16 mt-12">
         {/* Image Grid Section */}
-        <div className="h-full">
-          <div className="grid grid-cols-2 gap-4 h-full">
-            {images.map(({ src, alt }, i) => (
-              <div key={i} className="relative w-full h-[200px] lg:h-full">
+        <div className="h-[400px] lg:h-[500px]">
+          {/* Mobile: Equal grid with custom order | Desktop: Absolute positioning */}
+          <div className="h-full relative">
+            {/* Mobile Grid Layout */}
+            <div className="grid grid-cols-2 grid-rows-2 gap-2 h-[400px] lg:hidden">
+              {/* Image 1 - Mobile: top-left */}
+              <div className="relative w-full h-full order-1">
                 <Image
-                  src={src}
+                  src={images[0].src}
+                  alt={images[0].alt}
                   fill
-                  priority
-                  quality={100}
                   className="object-cover rounded-lg"
-                  alt={alt}
                 />
               </div>
-            ))}
+
+              {/* Image 3 - Mobile: top-right */}
+              <div className="relative w-full h-full order-2">
+                <Image
+                  src={images[2].src}
+                  alt={images[2].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Image 2 - Mobile: bottom-left */}
+              <div className="relative w-full h-full order-3">
+                <Image
+                  src={images[1].src}
+                  alt={images[1].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Image 4 - Mobile: bottom-right */}
+              <div className="relative w-full h-full order-4">
+                <Image
+                  src={images[3].src}
+                  alt={images[3].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
+            {/* Desktop Absolute Positioning Layout */}
+            <div className="hidden lg:block h-full relative">
+              <div className="absolute top-0 left-0 w-[48%] h-[40%]">
+                <Image
+                  src={images[0].src}
+                  alt={images[0].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute top-0 right-0 w-[48%] h-[50%]">
+                <Image
+                  src={images[1].src}
+                  alt={images[1].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 w-[48%] h-[55%]">
+                <Image
+                  src={images[2].src}
+                  alt={images[2].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+              <div className="absolute bottom-0 right-0 w-[48%] h-[45%]">
+                <Image
+                  src={images[3].src}
+                  alt={images[3].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Text Section */}
         <div className="flex flex-col justify-center h-full space-y-10 max-w-[500px] text-center lg:text-left">
-          <p className="text-lg lg:text-xl font-medium leading-relaxed lg:text-center text-left mt-4 lg:mt-0">
+          <p className="text-lg lg:text-xl font-medium leading-relaxed text-left mt-4 lg:mt-0">
             At Dee Unique International Schools, we go beyond textbooks! Our
             students experience:
           </p>
