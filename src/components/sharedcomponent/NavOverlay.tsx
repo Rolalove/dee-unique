@@ -16,7 +16,6 @@ interface NavOverlayProps {
 export const NavOverlay = ({
   onClose,
   onBack,
-  title,
   description,
   subnavs,
   isMobile = false,

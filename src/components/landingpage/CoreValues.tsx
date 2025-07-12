@@ -1,5 +1,3 @@
-import { HiLightBulb } from "react-icons/hi";
-import { FaGraduationCap } from "react-icons/fa";
 import Image from "next/image";
 
 const CoreValues = () => {
